@@ -42,3 +42,13 @@
 更多素材来源与设计参考见 [Credits](https://starer1333.github.io/jinghan-portfolio/credits.html)。
 
 个人文字、摄影与作品内容不因本仓库公开而自动授予开源许可；第三方素材权利归原权利人所有。
+
+## 发布验证 / Deployment verification
+
+- 验证日期 / Verified: 2026-10-08
+- 公开网站 / Live website: [https://starer1333.github.io/jinghan-portfolio/](https://starer1333.github.io/jinghan-portfolio/)
+- GitHub 仓库 / Repository: [https://github.com/starer1333/jinghan-portfolio](https://github.com/starer1333/jinghan-portfolio)
+- 默认分支 / Default branch: `main`
+- Pages 发布源 / Source: Deploy from a branch → `main` → `/ (root)`
+- GitHub Pages 部署成功；公开首页及全部 16 个 HTML 入口已通过浏览器访问检查，桌面与手机宽度下无横向溢出，未检测到页面脚本异常或失败的站内资源请求。
+- 发布包共 106 个文件；未包含上级目录的 `prepare.py`、`qa.cjs`、`manifest.json`、`link-check.json`，也未上传截图、字体对比页或本次验证工具。
