@@ -1,0 +1,117 @@
+@import url('assets/handwriting/wenkai.css');
+/* Site refinements approved for publication on 2026-10-03. */
+@font-face{font-family:LaBelleAurore;src:url('assets/handwriting/LaBelleAurore.ttf') format('truetype');font-weight:400;font-display:swap}
+:root{--guide-en:LaBelleAurore;--guide-zh:PreviewWenKai;--guide-font:var(--guide-en),var(--guide-zh),'KaiTi','STKaiti',cursive}
+.preview-guide,.preview-guide .bi,.preview-guide [lang]{font-family:var(--guide-font)!important;font-weight:400;letter-spacing:0}
+.scroll-cue{font-size:12px}.perspective-switch,.tray-instruction{font-size:14px}.header-hello>.bi{font-size:17px}.window-controls p{font-size:11px}
+.research-art-guide{width:120px;display:flex;flex-direction:column;align-items:center;position:relative}
+.research-art-target{width:120px;height:150px;display:flex;align-items:center;justify-content:center}
+.research-art-target>img{width:120px;height:150px;object-fit:contain;filter:drop-shadow(2px 8px 7px #244d4015)}
+.cinema-link .research-art-guide,.cinema-link .research-art-target{width:110px;flex-shrink:0}
+.shipping-entry .research-art-target,.shipping-entry .research-art-target>img{height:125px}
+.research-art-guide .research-guide{display:flex;flex-direction:column;gap:0;border:0;padding:0;margin-top:3px;font:15px/1.2 var(--guide-font);text-align:center;max-width:155px;width:max-content;transform:rotate(-5deg);white-space:normal}
+.guide-arrow{width:36px;height:27px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin:0 0 2px 25px;flex-shrink:0}
+.book-follow-hint,.notes-book-scene>.open-book-hint{position:absolute;bottom:auto;right:auto;margin:0;padding:0;background:none;border:0;box-shadow:none;font:12px/1.35 var(--guide-font);color:var(--muted);width:max-content;max-width:100%;transform:translateX(-50%) rotate(-3deg);z-index:4;pointer-events:auto;text-align:center}
+.notes-book-scene{position:relative}.notes-book-scene>.open-book-hint{opacity:1;color:#526e60}.observe-layout-v5>div:first-child>.small-note{margin-top:22px}
+/* Packed coordinates match the original collection; only spread coordinates change. */
+.personal-tray .tray-3{--out-x:85%;--out-y:44%;--in-x:39%;--in-y:70%}
+.personal-tray .tray-4{--out-x:85%;--out-y:72%;--in-x:53%;--in-y:74%}
+.personal-tray .tray-4 .object-label{top:calc(100% + 8px)}
+.personal-tray .tray-3 .object-label{top:28%;left:calc(100% + 4px);width:clamp(85px,10vw,145px);max-width:none;white-space:normal;align-items:flex-start;text-align:left;transform:translate(5px,0) rotate(calc(var(--r)*-1));margin:0}
+.personal-tray .tray-3:is(:hover,:focus-visible) .object-label{transform:translate(0,0) rotate(calc(var(--r)*-1))}
+.personal-tray .tray-3 .object-label>strong{white-space:normal}
+.make-item>small.preview-guide{font-size:12px;line-height:1.4}
+.bottle-card>strong{font-size:11.7cqw;top:18%}.bottle-message{background:none!important;border:0!important;box-shadow:none!important;padding:0!important;font:4.2cqw/1.05 var(--guide-font);top:51%;left:8%;transform:rotate(-5deg)}
+.bottle-link{font:2cqw "Courier New",monospace;letter-spacing:.09em}
+/* Same navigation geometry as the unchanged home header. */
+.contact-body .contact-header{position:fixed;inset:0 0 auto;display:flex;flex-wrap:nowrap;align-items:center;justify-content:initial;width:100vw;max-width:none;height:99px;padding:0 4.5vw;gap:30px;margin:0;border:0;background:#ffffffeb;z-index:50}
+.contact-body .contact-header a.v5-wordmark{font:650 clamp(23px,2.4vw,35px)/1 var(--serif);letter-spacing:-1.2px;white-space:nowrap}
+.contact-body .contact-journey{padding-top:99px}
+.contact-body .contact-header .contact-back{margin-left:auto;font-size:18px}.contact-body .contact-header .language-mount{margin-left:0}
+.contact-body .contact-header .header-hello{margin:0;width:75px;min-width:75px}
+@media(hover:hover) and (min-width:701px){.header-hello:is(:hover,:focus-visible) .hello-envelope{transform:translateY(43.5px) scale(1.825) rotate(2deg)}.header-hello:is(:hover,:focus-visible)>.bi{transform:translate(-14px,36.5px) scale(1.5) rotate(-2.5deg)}.header-hello:is(:hover,:focus-visible):before{width:130px;height:150px}}
+/* Postcard verso: personal doodles left; recipient and writing right; stamp upper right. */
+.contact-body .postcard{padding:35px 38px 30px;border-radius:3px;background-color:#f6efdf;box-shadow:2px 3px #dbd3bf,6px 13px 23px #244d401c}
+.contact-body .postcard:before{border:0}.contact-body .postcard-top{min-height:130px;padding:0 105px 12px 110px;text-align:center}
+.contact-body .postcard-top h2{font-size:55px;letter-spacing:0}.contact-body .postcard-top .eyebrow{font-size:9px;letter-spacing:3px}
+.contact-body .postcard-content{display:grid;grid-template-columns:43% minmax(0,57%);gap:0;margin:0}
+.postcard-left{position:relative;min-width:0;padding:24px 32px 28px 0;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #597a5677}
+.postcard-doodles{position:absolute;width:160px;left:-12px;top:-137px;transform:rotate(-5deg);color:#527b69}
+.postcard-doodles svg{width:100%;height:90px;display:block}.postcard-doodles>span{display:block;font:20px Caveat,cursive;letter-spacing:6px;text-align:center;margin-top:-13px}
+.postcard-left-note{font:clamp(30px,3.1vw,46px)/1.18 var(--guide-font);transform:rotate(-8deg);margin:20px 0 32px;text-align:center;color:#647565}
+.postcard-left-copy{max-width:260px;margin:30px auto 0;text-align:center;font-size:13px;color:#66765e}
+.postcard-right{min-width:0;padding-left:35px}
+.contact-body .postcard-address{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 10px;padding:0 0 15px;margin:0 0 10px;border:0;border-bottom:1px solid #667e5950}
+.contact-body .postcard-address>.eyebrow{grid-column:1/-1;font-size:9px}.contact-body .postcard-address .recipient{margin:4px 0;font-size:22px;line-height:1.1}.contact-body .postcard-address .recipient br{display:none}.contact-body .postcard-address .recipient>span{font-size:12px;margin-left:8px}
+.contact-body .postcard-address>a{grid-column:1/-1;font-size:13px;letter-spacing:0;overflow-wrap:anywhere}.contact-body .postcard-address>a br{display:none}
+.contact-body .postcard-address #copy-email{grid-column:2;grid-row:2;margin:0;font-size:12px;padding:0;border:0}
+.contact-body #postcard-form label{font-size:14px;margin:11px 0 0;line-height:1.4;color:#65775e}.contact-body #postcard-form label span{font:9px var(--sans);color:#7c856e}
+.contact-body #postcard-form input,.contact-body #postcard-form textarea{border:0;border-bottom:1px solid #8a927c;border-radius:0;background-color:transparent;box-shadow:none;color:var(--ink);font:16px var(--sans);padding:4px 0 6px;margin:0;line-height:1.5;height:auto;min-height:0}
+.contact-body #postcard-form textarea{height:110px;background-image:repeating-linear-gradient(transparent 0 32px,#8a927c44 32px 33px);resize:vertical;line-height:33px}
+.contact-body #postcard-form input::placeholder,.contact-body #postcard-form textarea::placeholder{color:#8b907d;opacity:1}
+.contact-body .postcard-actions{margin-top:16px;gap:15px}.contact-body .send-letter{background:none;border:0;border-bottom:1px solid #648269;border-radius:0;color:var(--ink);font-size:15px;padding:3px 0;flex:initial;min-width:0;box-shadow:none}
+.contact-body #copy-letter{font-size:10px;border:0}.contact-body .delivery-note{font-size:10px;line-height:1.5;margin-top:10px}.contact-body .note-meta{margin-top:8px}.contact-body #selected-topic{font-size:10px}.contact-body .stamp-shelf-caption p{font-size:22px}.contact-body .stamp-shelf-caption small{font-size:12px}
+@media(max-width:1000px){.postcard-right{padding-left:23px}.contact-body .postcard{padding:30px 24px}.contact-body .postcard-top{padding-left:65px}.postcard-doodles{width:120px;top:-120px}}
+@media(max-width:700px){.contact-body .contact-header{height:80px;padding:0 22px;gap:14px}.contact-body .contact-header a.v5-wordmark{font-size:25px}.contact-body .contact-header .contact-back{position:absolute;top:91px;left:24px;font-size:16px}.contact-body .contact-header .language-mount{margin-left:auto}.contact-body .contact-header .header-hello{width:42px;min-width:42px}.header-hello>.bi{font-size:14px}.contact-body .contact-intro{padding-top:75px}.contact-body .contact-journey{padding-top:80px}
+.research-art-guide,.research-art-target,.cinema-link .research-art-guide,.cinema-link .research-art-target{width:80px}.research-art-target,.research-art-target>img{width:80px;height:100px}.research-art-guide .research-guide{font-size:15px;width:105px;max-width:105px}.research-art-guide .guide-arrow{height:25px}.book-follow-hint,.notes-book-scene>.open-book-hint{font-size:12px}.personal-tray .tray-3{--in-x:39%;--out-x:90%;--in-y:70%;--out-y:45%;width:62px}.personal-tray .tray-4{--in-x:53%;--out-x:90%;--in-y:74%;--out-y:65%;width:62px}.personal-tray .tray-3 .tray-art,.personal-tray .tray-4 .tray-art{width:60px;transform:scale(.7)}.personal-tray .tray-3 .object-label,.personal-tray .tray-4 .object-label{font-size:10px;max-width:95px;top:84%;left:30%;line-height:1.2}.personal-tray .tray-3 .object-label>strong,.personal-tray .tray-4 .object-label>strong{font-size:12px}
+.contact-body .postcard{padding:27px 20px 24px}.contact-body .postcard-top{padding:5px 60px 16px 45px;min-height:115px}.contact-body .postcard-top h2{font-size:36px}.contact-body .postcard-top .eyebrow{font-size:6px;letter-spacing:1px}.contact-body .postcard-content{grid-template-columns:1fr}.postcard-left{padding:6px 0 20px;border-right:0;border-bottom:1px solid #597a5655}.postcard-doodles{width:70px;left:-5px;top:-112px}.postcard-doodles svg{height:60px}.postcard-doodles>span{font-size:13px}.postcard-left-note{font-size:28px;margin:0;transform:rotate(-4deg)}.postcard-left-copy{margin:18px auto 0;font-size:11px}.postcard-right{padding:20px 0 0}.contact-body .postcard-address{display:grid;grid-template-columns:1fr auto;padding-bottom:12px}.contact-body .postcard-address>a{font-size:12px}.contact-body .postcard-address #copy-email{font-size:12px}.contact-body #postcard-form label{font-size:14px}.contact-body .stamp-shelf-caption small{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.header-hello:is(:hover,:focus-visible) .hello-envelope,.header-hello:is(:hover,:focus-visible)>.bi{transform:none}}
+.static-mode .header-hello:is(:hover,:focus-visible) .hello-envelope,.static-mode .header-hello:is(:hover,:focus-visible)>.bi{transform:none}
+@media(max-width:700px){.contact-body .contact-header .contact-back{max-width:calc(100vw - 48px);line-height:1.25}.personal-tray .tray-3 .object-label,.personal-tray .tray-4 .object-label{top:84%}}
+
+/* Whole-phrase motion; rotate is independent of each cue's existing transform. */
+.preview-guide-motion{animation:preview-guide-sway 2.6s ease-in-out infinite alternate;transform-origin:50% 60%;animation-play-state:paused}
+.preview-guide-motion.guide-in-view{animation-play-state:running}
+@keyframes preview-guide-sway{from{rotate:-1.6deg}to{rotate:1.6deg}}
+@media(prefers-reduced-motion:reduce){.preview-guide-motion{animation:none!important;rotate:0deg}}
+.static-mode .preview-guide-motion{animation:none!important;rotate:0deg}
+@media(max-width:700px){
+ .make-item>small.preview-guide{font-size:10px;line-height:1.45}
+ .personal-tray .tray-3{--out-x:89%}
+ .personal-tray .tray-3 .tray-art{transform:scale(.48)}
+ .personal-tray .tray-4{--out-y:57%}
+ .personal-tray .tray-3 .object-label{top:26%;left:calc(100% - 10px);width:37px;max-width:none;font-size:8px;line-height:1.25;white-space:normal;align-items:flex-start;transform:translate(3px,0) rotate(calc(var(--r)*-1))}
+ .personal-tray .tray-3:is(:hover,:focus-visible) .object-label{transform:translate(0,0) rotate(calc(var(--r)*-1))}
+ .personal-tray .tray-3 .object-label>strong{font-size:10px;white-space:normal}
+}
+@media(min-width:701px) and (max-width:1000px){
+ .personal-tray .tray-3 .object-label{width:68px;font-size:10px;left:calc(100% - 2px)}
+ .personal-tray .tray-3 .object-label>strong{font-size:14px}
+ .personal-tray .tray-4{--out-x:87%;--out-y:72%}
+}
+
+/* Requested refinement, 2026-10-03: small cues, ordinary form text, unchanged icon anchors. */
+.perspective-switch{border-bottom:0;text-decoration:none}
+.scroll-cue .scroll-hand-arrow{width:29px;height:23px;transform:rotate(180deg);margin:0 0 0 9px;vertical-align:middle}
+.header-hello>.bi{visibility:hidden;pointer-events:none}
+.book-follow-hint{font-size:13px}
+.shipping-summary{font:13px/1.8 var(--sans);color:var(--ink);margin:0}
+.about-intro>div>p:not(.hand-note){font-size:18px}
+.about-intro .experience-book p{font-size:17px!important}
+.contact-body #postcard-form label,.contact-body #copy-letter,.contact-body #selected-topic,.contact-body .delivery-note{font-family:var(--sans)}
+.personal-tray .tray-2{--out-x:84%;--out-y:20%}
+.personal-tray .tray-3{--out-x:86%;--out-y:47%}
+.personal-tray .tray-4{--out-x:84%;--out-y:76%}
+.personal-tray .tray-2 .object-label{top:28%;left:calc(100% + 4px);width:clamp(75px,9vw,130px);max-width:none;white-space:normal;align-items:flex-start;text-align:left;transform:translate(5px,0) rotate(calc(var(--r)*-1));margin:0}
+.personal-tray .tray-2:is(:hover,:focus-visible) .object-label{transform:translate(0,0) rotate(calc(var(--r)*-1))}
+.personal-tray .tray-2 .object-label>strong{white-space:normal}
+@media(max-width:700px){
+ .scroll-cue{font-size:10px}.tray-instruction{font-size:13px}
+ .about-intro>div>p:not(.hand-note){font-size:16px}
+ .contact-body .send-letter{font-size:14px}.contact-body .stamp-shelf-caption p{font-size:19px}
+ .personal-tray .tray-2{--out-x:91%;--out-y:20%}
+ .personal-tray .tray-2 .tray-art{transform:scale(.4)}
+ .personal-tray .tray-3{--out-x:90%;--out-y:43%}
+ .personal-tray .tray-4{--out-x:92%;--out-y:64%}
+ .personal-tray .tray-2 .object-label{top:26%;left:calc(100% - 18px);width:28px;font-size:8px;line-height:1.25}
+ .personal-tray .tray-2 .object-label>strong{font-size:10px}
+}
+.contact-body .stamp-shelf-caption .handwriting{font-size:25px}
+@media(max-width:700px){.contact-body .stamp-shelf-caption .handwriting{font-size:22px}}
+@media(max-width:400px){.personal-tray .tray-3 .object-label{width:33px}}
+@media(min-width:701px) and (max-width:1000px){
+ .personal-tray .tray-2{--out-x:86%}
+ .personal-tray .tray-2 .object-label{width:58px;font-size:10px;left:calc(100% + 4px)}
+ .personal-tray .tray-2 .object-label>strong{font-size:14px}
+ .personal-tray .tray-4{--out-x:87%}
+}

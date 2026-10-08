@@ -1,0 +1,10 @@
+(()=>{'use strict';
+const header=document.querySelector('.v5-header'),button=header?.querySelector('.menu-toggle'),nav=header?.querySelector('#main-nav');if(!button||!nav)return;
+const still=()=>matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('static-mode');
+const close=()=>{nav.classList.remove('open');button.setAttribute('aria-expanded','false')};
+const sync=()=>button.setAttribute('aria-label',button.getAttribute('aria-expanded')==='true'?'关闭菜单 / Close menu':'打开菜单 / Open menu');
+new MutationObserver(sync).observe(button,{attributes:true,attributeFilter:['aria-expanded']});sync();
+button.addEventListener('click',()=>{if(nav.classList.contains('open')&&!still())nav.animate([{opacity:0,transform:'translateY(-5px) scale(.98)'},{opacity:1,transform:'none'}],{duration:220,easing:'cubic-bezier(.2,.8,.2,1)'})});
+document.addEventListener('pointerdown',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!button.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){close();button.focus()}});
+})();

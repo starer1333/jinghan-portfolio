@@ -1,0 +1,103 @@
+/* V11: requested object, correspondence, and Notes refinements only. */
+:root{--mail-art:url('assets/v11/card-blue.png');--mail-accent:#357b89}
+html[data-mail-art=sun]{--mail-art:url('assets/v11/card-sun.png');--mail-accent:#b54e2d}
+/* The expanded envelope stays anchored to its original navigation position. */
+.header-hello{transform-origin:top right;transition:transform .45s cubic-bezier(.22,.7,.2,1)}
+.hello-envelope{width:66px;height:51px;filter:drop-shadow(1px 3px 2px #244d401c)}
+@media(hover:hover) and (min-width:701px){
+ .header-hello:hover,.header-hello:focus-visible{transform:none;z-index:20}
+ .header-hello:is(:hover,:focus-visible):before{content:'';position:absolute;right:0;top:0;width:190px;height:255px}
+ .header-hello .hello-envelope{transform-origin:top right;transition:transform .45s cubic-bezier(.22,.7,.2,1)}
+ .header-hello>.bi{transition:transform .45s cubic-bezier(.22,.7,.2,1)}
+ .header-hello:is(:hover,:focus-visible) .hello-envelope{transform:translateY(87px) scale(2.65) rotate(4deg)}
+ .header-hello:is(:hover,:focus-visible)>.bi{transform:translate(-28px,73px) scale(2) rotate(-5deg)}
+}
+/* A halo belongs to the Make moon, not the opening collection. */
+.make-item[data-make=script] .make-art{position:relative;isolation:isolate;overflow:visible}
+.make-item[data-make=script] .make-art:before{content:'';position:absolute;inset:-30%;border-radius:50%;z-index:-1;pointer-events:none;background:radial-gradient(circle,#eacb7770 0%,#f0d48940 38%,#f4e5b918 58%,transparent 73%);opacity:.5;transition:opacity .5s,scale .5s}
+.make-item[data-make=script]:is(:hover,.activated) .make-art:before{opacity:1;scale:1.18}
+.make-item[data-make=script] .make-art>img{transform-origin:50% 50%}
+.floral-writing-art .ink-stroke{left:0;top:0;width:100%;height:100%;transform:none;overflow:visible;stroke-width:1.2}
+.make-item.activated[data-make=editing] .ink-stroke path{animation:none}
+.writing-pen{position:absolute;width:44%;height:66%;left:65%;top:58%;transform:translate(-50%,-95.3%) rotate(31deg);transform-origin:50% 95.3%;pointer-events:none;z-index:3}
+.writing-pen img{display:block;width:100%;height:100%;object-fit:contain}
+.personal-tray .tray-3{--out-x:89%;--out-y:calc(51% - 35px)}
+.personal-tray .tray-4{--out-x:84%;--out-y:calc(84% + 36px)}
+.personal-tray .tray-5 .everyday-notebook{width:195px;height:195px;max-width:195px;max-height:none}
+/* Illustrated correspondence. The lettering remains live and selectable. */
+.hello-line .study-postcard{width:min(560px,53vw);height:auto;aspect-ratio:3/2;border-radius:17px;padding:0;background:transparent;flex-shrink:0}
+.bottle-card{display:block;position:relative;width:100%;height:100%;aspect-ratio:3/2;background:var(--mail-art) center/100% 100% no-repeat;border-radius:inherit;color:#254d40;overflow:hidden;text-align:left;container-type:inline-size}
+.bottle-kicker{position:absolute;top:9%;left:7%;font:10px 'Courier New',monospace;font-size:2cqw;letter-spacing:.14em}
+.bottle-card>strong{position:absolute;top:17%;left:7%;font:600 13cqw/.85 Fraunces,Georgia,serif;letter-spacing:-.045em;transform:rotate(-3deg)}
+.bottle-card>strong em{font-style:normal;color:var(--mail-accent)}
+.bottle-message{position:absolute;top:53%;left:7%;font:400 3.2cqw/1.2 Caveat,cursive;transform:rotate(-4deg);background:#fff8e8e8;padding:1% 2%;box-shadow:1px 2px 2px #67523912}
+.bottle-link{position:absolute;bottom:9%;left:8%;font:2cqw 'Courier New',monospace;letter-spacing:.09em;background:#fff9e9e8;padding:1.2% 2%;transform:rotate(-2deg)}
+.contact-body .postcard{--paper:#f6efdf;border-radius:15px;padding:38px 30px 30px}
+.contact-body .postcard-flourish{display:none}
+.contact-body .postcard-top{padding:8px 115px 15px 0;text-align:left;min-height:138px}
+.contact-body .postcard-top h2{font-size:clamp(40px,4.8vw,66px);letter-spacing:-2px}
+.contact-body .postcard-content{grid-template-columns:1fr 1fr;gap:25px;margin-top:10px}
+.contact-body .postcard-address{display:flex;padding:0 25px 0 0;border-right:1px solid var(--rule);border-bottom:0}
+.mail-illustration{width:100%;border-radius:9px;transform:rotate(-3deg);margin:9px 0 27px;box-shadow:1px 3px #d5cbb6,3px 8px 12px #244d401b}
+.mail-illustration .bottle-link{display:none}
+.contact-body .postcard-address .recipient{font-size:24px;margin:10px 0}
+.contact-body .postcard-address .recipient>span{font-size:15px}
+.contact-body .postcard-address>a{font-size:12px}
+.contact-body .postcard-address #copy-email{margin-top:15px}
+.contact-body .postcard:after{border-radius:9px}
+/* C reference: stationary stamp rotations with a 1 → .9 pulse, 1.2 s per leg. */
+.intro-badges{gap:20px;align-items:center;justify-content:space-between;max-width:500px;margin-top:45px}
+.badge-motion{position:relative;flex:1;min-width:0;animation:c-stamp-pulse 1.2s ease-in-out infinite alternate}
+.badge-caption{position:absolute;left:0;right:0;top:calc(100% + 25px);text-align:center;opacity:0;transform:scale(.8);transition:opacity .3s ease-out,transform .3s ease-out;font:13px/1.3 var(--sans);pointer-events:none}
+.intro-badges .badge-caption small{display:block;font:10px/1.6 var(--sans);letter-spacing:0;margin-top:3px}
+.badge-motion:is(:hover,:focus-visible) .badge-caption{opacity:1;transform:scale(1)}
+.intro-badges .passport-stamp{position:static;padding:20px 8px;font-size:28px;opacity:.85;width:100%;box-sizing:border-box}
+.intro-badges .passport-stamp small{font-size:8px;line-height:1.8;white-space:normal;letter-spacing:.5px}
+.intro-badges .passport-look{transform:rotate(-6deg)}
+.intro-badges .passport-write{transform:rotate(10deg);padding:27px 8px}
+.intro-badges .passport-ask{transform:rotate(1deg)}
+@keyframes c-stamp-pulse{from{transform:scale(1)}to{transform:scale(.9)}}
+.passport-monogram{position:absolute;inset:65px 0 45px;display:grid;place-items:center;font:60px Fraunces,serif;letter-spacing:12px;opacity:.3}
+.passport-top .passport-motto{width:auto;left:26px;right:26px;text-align:center;bottom:25px;transform:rotate(-5deg);font-size:23px}
+.contact-body .passport-book{transform:rotate(16deg);max-width:430px;transition:transform .65s ease-in-out,box-shadow .65s}
+@media(hover:hover) and (min-width:1001px){.contact-body .passport-book:hover,.contact-body .passport-book:focus-visible{transform:translateY(-86px) scale(1.42) rotate(16deg);z-index:8}}
+/* Journal: paper grain, inset binding, restrained scraps; original copy is retained. */
+.notes-page{background-color:#faf7ec;background-image:linear-gradient(90deg,#75694f27,transparent 9%),repeating-linear-gradient(0deg,transparent 0 23px,#78998213 23px 24px);border-radius:1px 5px 5px 1px;overflow:visible;padding-top:40px}
+.notes-page:after,.journal-reading-page:after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath filter='url(%23g)' opacity='.45' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+.notes-page h4{font-size:24px;margin:20px 0}
+.notes-contents{counter-reset:note}
+.notes-contents li{counter-increment:note;display:flex;align-items:baseline;gap:10px}
+.notes-contents li:before{content:'0' counter(note);font:10px 'Courier New',monospace;color:#8e8066}
+.notes-contents .text-link{font-size:16px;padding:12px 0;border-bottom:1px dashed #8997866b;width:100%;gap:12px}
+.journal-tab{position:absolute;right:17px;top:-11px;padding:6px 12px;background:#c1d7be;box-shadow:1px 2px 3px #244d4017;font:13px Caveat,cursive;transform:rotate(3deg);z-index:2}
+.notes-front:after{display:none}
+.journal-endpaper{position:absolute;inset:0;display:block;background:linear-gradient(90deg,transparent 85%,#70614f28),#e9ebdc;border:9px solid #a5bca9;box-shadow:inset 0 0 9px #6c796126;transform:rotateY(180deg);backface-visibility:hidden;pointer-events:none;overflow:hidden}
+.endpaper-label{position:absolute;left:20px;right:20px;top:24px;border-bottom:1px solid #81937e66;padding-bottom:10px;font:22px Fraunces,serif;letter-spacing:3px}
+.endpaper-label small{display:block;margin-top:8px;font:7px 'Courier New',monospace;letter-spacing:1px}
+.paper-scrap{position:absolute;left:18%;top:36%;width:64%;height:47%;padding:28px 15px 15px;background:repeating-linear-gradient(transparent 0 21px,#71897426 21px 22px),#fbf6e6;transform:rotate(-9deg);box-shadow:2px 4px 7px #244d4020;font:23px/1.15 Caveat,cursive;text-align:left;color:#75634d}
+.paper-scrap:before,.margin-paper:before{content:'';position:absolute;left:25%;top:-10px;width:50%;height:25px;background:#97b6a597;transform:rotate(4deg)}
+.endpaper-pocket{position:absolute;bottom:0;left:0;right:0;height:75px;padding:35px 10px 10px;background:#d7dfcd;box-shadow:0 -1px #96a68b,0 -4px 8px #244d400d;font:7px 'Courier New',monospace;letter-spacing:1px}
+.notes-volume.is-open .notes-front{transform:rotateY(-158deg)}
+.reader-body:has(.journal-reader){background:#dbe7dd}
+.journal-reader{position:relative;display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1160px;margin:65px auto 95px;padding:0;background:#efeedf;box-shadow:1px 3px #cacdbb,5px 6px #f6f2e5,8px 9px #c6cbb9,15px 20px 40px #244d4024;border:1px solid #d5d8c8;border-radius:5px}
+.journal-margin{position:relative;padding:40px 27px;min-width:0;background:linear-gradient(90deg,transparent 91%,#66594320);border-right:1px solid #c4c8b9}
+.margin-index{font:11px 'Courier New',monospace;letter-spacing:2px;color:#6a7862}
+.margin-paper{position:relative;background:#fffdf2;padding:11px 11px 18px;margin:60px 0 35px;transform:rotate(-6deg);box-shadow:2px 4px 7px #244d4020}
+.margin-paper img{width:100%;height:185px;object-fit:cover;object-position:top;opacity:.7;filter:sepia(.18)}
+.margin-paper>span{display:block;text-align:center;font:18px Caveat,cursive;margin-top:9px}
+.margin-hand{display:block;font:31px/1.2 Caveat,cursive;transform:rotate(-8deg);color:#8a7963;margin:65px 12px}
+.margin-stamp{display:block;border:3px double #728d797d;border-radius:50%;width:130px;height:130px;margin:70px auto;text-align:center;padding:30px 5px;font:27px Fraunces,serif;transform:rotate(-12deg);color:#728d79}
+.margin-stamp small{display:block;font:7px 'Courier New',monospace;margin-top:12px;letter-spacing:1px}
+.journal-reading-page{position:relative;min-width:0;padding:44px 60px 45px;background:linear-gradient(90deg,#98856a16,transparent 7%),#fbf8ed;isolation:isolate}
+.journal-reading-page>.eyebrow{display:block;margin-top:42px;font-size:10px;letter-spacing:2px}
+.journal-reader h1{font-size:clamp(30px,3.5vw,48px);margin:18px 0 22px;line-height:1.4}
+.journal-reader .note-meta{font-size:11px;line-height:1.8;padding-bottom:25px;border-bottom:1px solid #aab8a17d}
+.journal-reader .note-prose{max-width:none;font-size:17px;line-height:2.05}
+.journal-reader .note-prose>p{margin:28px 0}
+.journal-reader .editor-note{font-size:12px;line-height:1.9;background:#e2e8d9a6;border-left:2px solid #a2b69b;padding:14px 18px;color:#60725f;transform:rotate(-.5deg)}
+.reader-folio{display:block;text-align:right;margin-top:55px;font:9px 'Courier New',monospace;letter-spacing:2px;color:#6a7862}
+@media(max-width:1100px){.intro-badges{max-width:440px}.intro-badges .passport-stamp{font-size:23px}.journal-reader{margin:45px 4vw 65px;grid-template-columns:200px minmax(0,1fr)}.journal-reading-page{padding:35px}.margin-paper img{height:145px}}
+@media(max-width:700px){.hello-envelope{width:40px;height:31px}.header-hello:hover{transform:scale(1.15)}.hello-line .study-postcard{width:min(100%,450px);height:auto;margin:15px auto;transform:rotate(-3deg)}.personal-tray .tray-3{--out-x:87%;--out-y:calc(49% - 25px)}.personal-tray .tray-4{--out-x:85%;--out-y:calc(85% + 20px)}.personal-tray .tray-5 .everyday-notebook{width:112px;height:118px;max-width:112px}.contact-body .postcard{padding:32px 23px 25px}.contact-body .postcard-top{padding:8px 70px 12px 0;min-height:118px}.contact-body .postcard-top h2{font-size:41px}.contact-body .postcard-content{grid-template-columns:1fr;gap:28px}.contact-body .postcard-address{display:grid;grid-template-columns:1fr 1fr;padding:0 0 25px;border-right:0;border-bottom:1px solid var(--rule);gap:7px}.mail-illustration{grid-column:1/-1;width:100%;margin:5px 0 20px}.contact-body .postcard-address>a{font-size:10px}.contact-body .postcard-address #copy-email{margin-top:5px}.intro-badges{gap:14px}.intro-badges .passport-stamp{font-size:22px;padding:18px 5px}.intro-badges .passport-write{padding:23px 5px}.intro-badges .passport-stamp small{font-size:6px;letter-spacing:0}.contact-body .passport-book,.contact-body .passport-book:hover{transform:rotate(5deg)}.notes-volume.is-open .notes-front{transform:rotateY(-108deg)}.notes-page{padding:30px 18px 20px 23px}.notes-page h4{font-size:21px}.notes-contents .text-link{font-size:14px;padding:11px 0}.journal-reader{display:block;margin:25px 18px 55px;border-left:9px solid #b0c3ac}.journal-margin{display:none}.journal-reading-page{padding:28px 24px 35px}.journal-reader h1{font-size:29px}.journal-reader .note-prose{font-size:16px;line-height:2}.journal-reading-page>.eyebrow{margin-top:32px}.journal-tab{font-size:12px}.journal-reader .back-link{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.badge-motion{animation:none}.contact-body .passport-book:hover{transform:rotate(16deg)}.make-item[data-make=script] .make-art:before{transition:none}}
+.static-mode .badge-motion{animation:none}.static-mode .passport-book:hover{transform:rotate(16deg)}
+@media(max-width:700px){.contact-body .postcard-address>.mail-illustration{grid-column:1/-1}.static-mode .passport-book:hover{transform:rotate(5deg)}}

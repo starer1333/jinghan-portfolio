@@ -1,0 +1,48 @@
+/* Reuse the existing mobile navigation. The wordmark, language window and
+   envelope retain the previous header geometry at every breakpoint. */
+.v5-header,.reader-body .v5-header,.contact-body .contact-header{
+  position:fixed;background:transparent!important;backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;border:0;box-shadow:none;pointer-events:none;
+}
+.v5-header>a,.v5-header>button,.v5-header>.language-mount,.v5-header>nav{pointer-events:auto}
+.v5-header .menu-toggle{
+  display:flex;margin-left:auto;position:relative;isolation:isolate;
+  background:#fffdf9;color:var(--ink);box-shadow:0 1px 6px #244d400b;
+}
+.v5-header .menu-toggle:before{
+  content:'';position:absolute;inset:-5px;border:1px solid var(--pink);
+  border-radius:50%;opacity:0;transform:scale(.85);pointer-events:none;
+  transition:opacity .22s ease,transform .22s ease;
+}
+.v5-header .menu-toggle:is(:hover,:focus-visible,[aria-expanded=true]){
+  background:#faeef2;color:#c77b98;box-shadow:none;
+}
+.v5-header .menu-toggle:is(:hover,:focus-visible,[aria-expanded=true]):before{opacity:1;transform:scale(1)}
+.v5-header .v5-wordmark{transition:color .22s ease}
+.v5-header .v5-wordmark:is(:hover,:focus-visible){color:#c77b98}
+.v5-header nav#main-nav{
+  display:none;position:absolute;top:78px;left:auto;right:calc(4.5% + 142px);
+  width:390px;max-width:calc(100vw - 32px);margin:0;padding:25px;
+  background:#fffdf9;box-shadow:0 15px 25px #244d401a;
+  border:1px solid #ecd4dd;border-radius:15px;flex-wrap:wrap;gap:25px;
+  transform-origin:top right;
+}
+.v5-header nav#main-nav.open{display:flex}
+.v5-header nav#main-nav a{position:relative;isolation:isolate;transition:color .22s ease}
+.v5-header nav#main-nav a:before{
+  content:'';position:absolute;inset:-9px -10px;z-index:-1;border-radius:9px;
+  background:#faeef2;opacity:0;transition:opacity .22s ease;
+}
+.v5-header nav#main-nav a:is(:hover,:focus-visible){color:#af5c7b}
+.v5-header nav#main-nav a:is(:hover,:focus-visible):before{opacity:1}
+.contact-body .contact-header nav .contact-back{
+  position:static;max-width:none;margin:6px 0 0;flex-basis:100%;font-size:16px;
+}
+@media(max-width:1000px) and (min-width:701px){.v5-header nav#main-nav{right:calc(4.5% + 118px)}}
+@media(max-width:700px){
+  .v5-header nav#main-nav{left:16px;right:16px;top:78px;width:auto;max-width:none}
+  .contact-body .contact-header nav .contact-back{position:static;max-width:none;left:auto;top:auto}
+  .contact-body .contact-header .language-mount{margin-left:0}
+}
+@media(prefers-reduced-motion:reduce){.v5-header .menu-toggle,.v5-header .menu-toggle:before,.v5-header .v5-wordmark,.v5-header nav#main-nav a,.v5-header nav#main-nav a:before{transition:none}}
+.static-mode .v5-header .menu-toggle:before,.static-mode .v5-header nav#main-nav a:before{transition:none}
