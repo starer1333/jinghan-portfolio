@@ -1,5 +1,5 @@
 (()=>{'use strict';const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)],clamp=v=>Math.max(0,Math.min(1,v));
-const tears=$$('.paper-transition');let frame;
+const tears=[]; /* Local preview v4 owns the two paper surfaces. */let frame;
 function paper(){frame=0;tears.forEach(t=>{const pin=$('.paper-pin',t),r=t.getBoundingClientRect(),w=pin.clientWidth,h=pin.clientHeight,canvas=h+180;const still=matchMedia('(prefers-reduced-motion:reduce)').matches||document.documentElement.classList.contains('static-mode');const p=still?1:clamp((innerHeight*.95-r.top)/(innerHeight*.55));t.dataset.progress=p.toFixed(3);const svg=$('svg',t);svg.setAttribute('viewBox',`0 0 ${w} ${canvas}`);const edge=x=>h*.54-h*.22*(x/w)+Math.sin(x*.009)*9+Math.sin(x*.038)*3+Math.sin(x*.19)*1.4+Math.sin(x*.73)*.7;
 const tip=w*(1.03-1.16*(p*p*(3-2*p))),pts=[];
 if(tip>0&&tip<w){const ty=edge(tip);pts.push([-5,canvas+10]);for(let s=1;s>0;s-=.035)pts.push([tip-Math.sin(s*Math.PI*.6)*45+Math.sin(s*63),ty+s*(canvas+10-ty)]);pts.push([tip,ty])}

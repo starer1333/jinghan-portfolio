@@ -1,0 +1,57 @@
+/* Scoped local-preview interactions. Original content and assets stay intact. */
+.text-link.original-pdf{position:relative;isolation:isolate;display:inline-flex;width:266px;max-width:100%;min-height:90px;margin:19px 0 17px;padding:20px 18px 23px;border:0!important;text-decoration:none!important;gap:0;line-height:1.5;font-size:18px;transform:rotate(-1.3deg);transform-origin:20% 20%;transition:transform .45s cubic-bezier(.2,.75,.25,1);overflow:visible;}
+.text-link.original-pdf::before,.text-link.original-pdf::after{content:none!important;}
+.text-link.original-pdf.preview-guide-motion{animation:none!important;rotate:0deg;}
+.note-paper{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;filter:drop-shadow(0 3px 2px #653c4817);transition:filter .4s ease;}
+.note-face{fill:#edbdce;stroke:#dba6b8;stroke-width:.65;}
+.note-crease{fill:none;stroke:#a96e8660;stroke-width:3;filter:blur(2px);}
+.note-fold{stroke:#edc4d2;stroke-width:.5;}
+.note-content{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px;position:relative;width:100%;}
+.original-pdf-tag{padding:2px 4px;border:1px solid currentColor;border-radius:2px;font:11px/1.35 var(--sans);letter-spacing:.055em;}
+.original-pdf-pages{font-size:12px;color:#536357;}
+.original-pdf-arrow{display:inline-block;transition:transform .4s ease;}
+.original-pdf .note-content>.bi:not(.original-pdf-sr){display:inline-block;transition:transform .4s cubic-bezier(.2,.8,.3,1);}
+.original-pdf:is(:hover,:focus-visible){transform:rotate(.6deg) translateY(-3px);color:var(--ink);}
+.original-pdf:is(:hover,:focus-visible) .note-paper{filter:drop-shadow(2px 9px 5px #653c4824);}
+.original-pdf:is(:hover,:focus-visible) .note-content>.bi:not(.original-pdf-sr){transform:translateY(-2px) rotate(-1deg);}
+.original-pdf:is(:hover,:focus-visible) .original-pdf-arrow{transform:translate(3px,-4px) rotate(6deg);}
+.original-pdf:focus-visible{outline:3px solid #9d526e;outline-offset:7px;}
+.reader-source-group{position:sticky;top:120px;}
+.reader-grid .reader-source-group nav{position:static;}
+@media(max-width:700px){.reader-source-group{position:static;}}
+.original-pdf-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+#make-panel>.text-link{border:0!important;text-decoration:none;font-size:17px;padding:10px 0;transition:color .2s,translate .3s;}
+#make-panel>.text-link::before,#make-panel>.text-link::after{content:none!important;}
+#make-panel>.text-link:hover{translate:2px -2px;}
+.intro-reveal .reveal-mask{display:inline-block;overflow:clip;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em;perspective:350px;}
+.intro-reveal .reveal-ink{display:block;transform-origin:50% 0;}
+.intro-reveal.reveal-waiting .reveal-ink{transform:translateY(-115%) rotateX(28deg);opacity:0;}
+.intro-reveal.reveal-playing .reveal-ink{animation:phrase-drop .78s cubic-bezier(.22,.75,.18,1) var(--reveal-delay,0ms) both;}
+.intro-reveal .pink-mark{opacity:1!important;}
+@keyframes phrase-drop{from{transform:translateY(-115%) rotateX(28deg);opacity:0;}25%{opacity:1;}to{transform:translateY(0) rotateX(0);opacity:1;}}
+.hero-idle-hint{position:absolute;left:50%;top:calc(100svh - 100px);margin-left:-36px;z-index:40;padding:0;border:0;background:none;}
+.scroll-chevron{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.scroll-ring{fill:none;stroke:currentColor;stroke-width:1;opacity:.35;stroke-dasharray:195;transform-origin:36px 36px;transform:rotate(-90deg);}
+.hero-idle-hint .scroll-ring{animation:idle-ring 2.8s ease-in-out infinite;}
+.hero-idle-hint .scroll-chevron{animation:idle-down 2.8s ease-in-out infinite;}
+@keyframes idle-ring{0%,100%{stroke-dashoffset:160;opacity:.22;}45%,65%{stroke-dashoffset:0;opacity:.45;}}
+@keyframes idle-down{0%,100%{transform:translateY(-4px);}48%,62%{transform:translateY(5px);}}
+@media(max-width:700px){.text-link.original-pdf{font-size:17px;min-height:88px;}.hero-idle-hint{top:calc(100svh - 87px);width:60px;height:60px;margin-left:-30px;}}
+@media(prefers-reduced-motion:reduce){.intro-reveal .reveal-ink{animation:none!important;opacity:1!important;transform:none!important;}.original-pdf:hover{transform:rotate(-1.3deg);}.hero-idle-hint .scroll-ring{stroke-dashoffset:100;}}
+.static-mode .intro-reveal .reveal-ink{animation:none!important;opacity:1!important;transform:none!important;}
+.static-mode .hero-idle-hint *{animation:none!important;}.static-mode .original-pdf,.static-mode .original-pdf *{transition:none!important;}
+
+.hero-idle-hint{position:fixed;top:auto;bottom:28px;width:72px;height:72px;color:var(--ink);}
+.hero-idle-hint svg{display:block;width:100%;height:100%;overflow:visible;}
+.favourite-dialog[data-reading="harry"]{width:min(1000px,94vw);padding:48px;}
+.favourite-dialog[data-reading="harry"] .favourite-body{grid-template-columns:130px minmax(0,1fr);align-items:start;gap:36px;}
+.favourite-dialog[data-reading="harry"] .favourite-art{max-width:130px;}
+.favourite-dialog[data-reading="harry"] .real-harry-book{display:block;position:relative;width:108px;aspect-ratio:358/550;}
+.favourite-dialog[data-reading="harry"] .harry-essay p{font-family:var(--sans);font-size:16px;line-height:1.95;margin:0 0 1.15em;}
+.harry-essay strong{font-weight:800;color:#a25370;}
+.harry-essay em{font-style:italic;}
+html[data-language="en"] .harry-essay>[lang="en"]{display:block;}
+@media(max-width:700px){.hero-idle-hint{width:60px;height:60px;}.favourite-dialog[data-reading="harry"]{padding:38px 24px;}.favourite-dialog[data-reading="harry"] .favourite-body{grid-template-columns:minmax(0,1fr);gap:18px;}.favourite-dialog[data-reading="harry"] .favourite-art{height:120px;}.favourite-dialog[data-reading="harry"] .real-harry-book{height:115px;}.favourite-dialog[data-reading="harry"] .real-harry-book img{height:115px;object-fit:contain;}.favourite-dialog[data-reading="harry"] .harry-essay p{font-size:15px;}}
+@media(prefers-reduced-motion:reduce){.hero-idle-hint *{animation:none!important;transition:none!important;}}
+@media(prefers-reduced-motion:reduce){.original-pdf,.original-pdf *{animation:none!important;transition:none!important;}}
+@media(max-width:700px){.hero-idle-hint{top:auto;bottom:20px;}}

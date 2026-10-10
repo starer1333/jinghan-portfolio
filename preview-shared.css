@@ -1,0 +1,54 @@
+/* Shared navigation, footer and requested chapter labels. */
+:root{--contact-size:clamp(40px,calc(36.29248px + .922266vw),54px);}
+.v5-header,.contact-body .contact-header{box-sizing:border-box!important;position:fixed!important;inset:0 0 auto!important;width:100vw!important;height:99px!important;max-width:none!important;padding:0 4.5vw!important;gap:30px!important;display:flex!important;align-items:center!important;flex-wrap:nowrap!important;margin:0!important;z-index:50!important;}
+.v5-header .menu-toggle{width:40px;height:40px;padding:0;margin-left:auto;flex-shrink:0;}
+.v5-header .language-mount,.contact-body .contact-header .language-mount{width:37px;height:52px;margin:0;flex-shrink:0;}
+.v5-header .header-hello,.contact-body .contact-header .header-hello{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;width:75px;min-width:75px;margin:0;padding:0;flex-shrink:0;transform-origin:top right;transition:transform .45s cubic-bezier(.22,.7,.2,1);}
+.v5-header .header-hello>.bi{font-size:17px;line-height:1.15;visibility:hidden;pointer-events:none;white-space:nowrap;}
+.v5-header .hello-envelope{position:static;display:block;width:66px;height:51px;margin:0;transform:rotate(4deg);filter:drop-shadow(1px 3px 2px #244d401c);}
+@media(hover:hover) and (min-width:701px){
+ .v5-header .header-hello:is(:hover,:focus-visible){transform:none;z-index:20;}
+ .v5-header .header-hello:is(:hover,:focus-visible):before{content:'';position:absolute;right:0;top:0;width:130px;height:150px;}
+ .v5-header .header-hello .hello-envelope{transform-origin:top right;transition:transform .45s cubic-bezier(.22,.7,.2,1);}
+ .v5-header .header-hello:is(:hover,:focus-visible) .hello-envelope{transform:translateY(43.5px) scale(1.825) rotate(2deg);}
+}
+.chapter-number{font-size:var(--chapter-label-size,18px)!important;}
+/* The original sheet overlay may never cover chapter text after opening. */
+#notes>.chapter-arrival,#about>.chapter-arrival{z-index:3;}
+#notes .chapter-heading,#about .chapter-heading{visibility:visible!important;opacity:1!important;}
+/* Homepage research objects stay as they were before v4. */
+.opening .obj-photo .mini-book,.opening .obj-notes .mini-book{scale:1!important;translate:0 0!important;}
+.opening .orbit-item .object-label{color:inherit!important;}
+/* Standalone detail pages have the same contact circles and panel as the homepage. */
+.contact-circles{display:flex;gap:10px;align-items:center;}
+.hero-contacts{position:fixed!important;top:auto!important;right:4.5%;bottom:28px;z-index:42;}
+footer .footer-contacts{margin-left:auto;}
+.contact-circle{width:var(--contact-size);height:var(--contact-size);flex:none;display:grid;place-items:center;border:0!important;border-radius:50%;padding:0;background:transparent;color:var(--ink);position:relative;transition:color .2s,background .2s;}
+.contact-circle .contact-symbol{width:44%;height:44%;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;scale:var(--presence,1);transition:color .2s;}
+.contact-circle .contact-ring{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:.85;opacity:.45;rotate:-90deg;}
+.contact-ring circle{stroke-dasharray:var(--presence,1) 1;stroke-dashoffset:calc(1 - var(--presence,1));}
+.contact-circle:after{content:'';position:absolute;inset:-5px;border:2px solid var(--pink);border-radius:50%;scale:.86;opacity:0;transition:scale .35s,opacity .2s;pointer-events:none;}
+.contact-circle:is(:hover,:focus-visible,[aria-expanded=true]){color:#a25370;background:#faeef2;outline:none;}
+.contact-circle:is(:hover,:focus-visible,[aria-expanded=true]):after{scale:1;opacity:1;}
+.contact-circle:is(:hover,:focus-visible) .contact-symbol{scale:calc(var(--presence,1) * 1.08);}
+.quick-contact{position:fixed;inset:auto;margin:0;width:350px;max-width:calc(100vw - 32px);box-sizing:border-box;padding:27px;background:#fffdf9;border:1px solid #ecd4dd;box-shadow:0 15px 25px #244d401a;border-radius:15px;color:var(--ink);overflow:visible;z-index:10000;}
+.quick-contact::backdrop{background:#294e421a;}.quick-contact[open]{animation:contact-pop .28s ease-out;}
+.quick-contact h2{font:26px/1.25 var(--serif);margin:0 28px 17px 0;}
+.contact-value{font:16px/1.7 var(--sans);overflow-wrap:anywhere;user-select:all;display:block;}
+.contact-action{display:inline-block;margin-top:18px;font:13px var(--sans);border:0;background:#faeef2;color:#a25370;border-radius:6px;padding:10px 15px;}
+.contact-close{position:absolute;right:12px;top:9px;border:0;background:none;color:var(--ink);font-size:26px;line-height:1;padding:5px;}
+.contact-status{font:12px var(--sans);margin-top:10px;min-height:16px;}
+@keyframes contact-pop{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.v5-note-mesh{position:relative;display:inline-block;width:100%;height:100%;}
+.v5-note-mesh>img{visibility:hidden;display:block;width:100%;height:100%;}
+.v5-note-mesh canvas{position:absolute;inset:-6%;width:112%;height:112%;pointer-events:none;}
+@media(max-width:700px){
+ .v5-header,.contact-body .contact-header{height:80px!important;padding:0 22px!important;gap:20px!important;}
+ .v5-header .language-mount,.contact-body .contact-header .language-mount{width:31px;height:44px;}
+ .v5-header .header-hello,.contact-body .contact-header .header-hello{width:42px;min-width:42px;}
+ .v5-header .hello-envelope{width:42px;height:34px;}.v5-header .header-hello:hover{transform:none;}.v5-header .header-hello>.bi{font-size:14px;}
+ .hero-contacts{right:18px;bottom:80px;gap:7px;} .hero-contacts .contact-circle{width:40px;height:40px;}
+ footer .footer-contacts{flex-basis:100%;margin:15px 0 0;justify-content:flex-end;}
+}
+@media(prefers-reduced-motion:reduce){.quick-contact[open]{animation:none;}.contact-circle *,.v5-header .hello-envelope{transition:none!important;}.v5-header .header-hello:hover .hello-envelope{transform:none;}}
+.v5-header .language-window.open .window-trigger{font-size:0;background:transparent;box-shadow:none;width:0;height:0;overflow:hidden;right:0;top:0;}

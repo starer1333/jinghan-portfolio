@@ -1,9 +1,9 @@
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-let staticMode=false;try{staticMode=sessionStorage.getItem('how-i-see-static')==='true'}catch{}
+let staticMode=false;try{staticMode=false}catch{}
 const status=document.getElementById('contact-status');const drop=document.getElementById('stamp-drop');const stamps=[...document.querySelectorAll('.stamp-options .topic-stamp')];const switchButton=document.querySelector('.motion-switch');
 const prefersStill=()=>staticMode||reducedMotion.matches;
-function syncMotion(){document.body.dataset.static=String(staticMode);document.documentElement.classList.toggle('static-mode',staticMode);switchButton.setAttribute('aria-pressed',String(staticMode));switchButton.textContent=staticMode?'减少动态 · 已开启':'减少动态';}
-switchButton.addEventListener('click',()=>{staticMode=!staticMode;try{sessionStorage.setItem('how-i-see-static',String(staticMode))}catch{}document.getAnimations().forEach(a=>a.cancel());syncMotion();window.dispatchEvent(new Event("v6-motion-change"))});syncMotion();
+function syncMotion(){document.body.dataset.static=String(staticMode);document.documentElement.classList.toggle('static-mode',staticMode);}
+syncMotion();
 if(!prefersStill()){document.querySelector('.profile-book').animate([{opacity:0,transform:'translateY(24px) rotate(-8deg)'},{opacity:1,transform:getComputedStyle(document.querySelector('.profile-book')).transform}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'});document.querySelector('.postcard').animate([{opacity:0,transform:'translateY(30px) rotate(4deg)'},{opacity:1,transform:getComputedStyle(document.querySelector('.postcard')).transform}],{duration:650,delay:100,easing:'cubic-bezier(.2,.8,.2,1)',fill:'backwards'});}
 let selectedTopic='';let ignoreClickUntil=0;let drag=null;const postcard=document.querySelector('.postcard');
 const englishNow=()=>window.HowISeeLanguage?.isEnglish()||document.documentElement.dataset.language==='en';
