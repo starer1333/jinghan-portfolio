@@ -59,6 +59,7 @@ headings.forEach(h=>{
    mask.style.setProperty('--reveal-delay',Math.min(count++*24,500)+'ms');mask.append(ink);fragment.append(mask);
   }node.replaceWith(fragment);
  }
+ h.querySelectorAll('.pink-mark').forEach(mark=>mark.style.setProperty('--mark-delay',mark.querySelector('.reveal-mask')?.style.getPropertyValue('--reveal-delay')||'0ms'));
  if(reduced()||h.getBoundingClientRect().bottom<0){h.dataset.revealed='true';return;}
  h.classList.add('reveal-waiting');observer.observe(h);
 });

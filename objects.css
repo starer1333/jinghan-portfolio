@@ -16,5 +16,5 @@
 .style-sample>img{max-width:210px;margin:auto}
 @media(max-width:650px){.hero-moon{display:none}.film-object{height:130px}.film-object img{width:150px}.film-object .handwriting{left:5%;font-size:17px}.object-shelf{gap:38px}.moon-orbit{width:175px;height:185px}.moon-disc{width:135px;height:135px}.editorial-object{width:170px;height:185px}.object-title{font-size:24px}.berry-art,.berry-paper-art{width:155px}.collection-box{grid-template-columns:1fr}.collection-story{padding:26px}.camera-real.instant-camera{width:215px}.camera-layout{max-width:280px;gap:0}.print-bed{margin-top:-15px;min-height:265px}.instant-print{width:185px}.print-colour{height:125px}.shutter-caption{font-size:18px;left:-5px}.folder-specimen{width:50px;height:50px}.folder-top{padding-right:58px}}
 
-.moon-disc{mask-image:url(assets/moon-paper.png);mask-size:contain;mask-repeat:no-repeat;mask-position:center}.moon-shadow{background:#25392bc9}
+.moon-disc{mask-image:url(assets/optimized/moon-paper-full.webp);mask-size:contain;mask-repeat:no-repeat;mask-position:center}.moon-shadow{background:#25392bc9}
 .orbit-caption{white-space:nowrap;left:-32px;right:-32px}@media(max-width:650px){.orbit-caption{font-size:18px;bottom:12px}}

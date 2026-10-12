@@ -1,0 +1,32 @@
+/* Follow-up requests only. The previously approved layout and text remain intact. */
+.bubble-pair .speech-bubble:after{left:12%;bottom:-7px;width:40px;height:36px;border-radius:0;box-shadow:none;clip-path:path('M0 0 H32 C25 10 26 23 38 31 C24 29 13 23 7 16 Z');transform:scaleX(-1) rotate(-8deg);background:linear-gradient(145deg,#edf2e9 5%,#d4ded1 56%,#b4c2b4 100%)}
+.bubble-pair .speech-bubble[aria-pressed=true]:after{background:linear-gradient(145deg,#e4b4c7 5%,#ce99b0 56%,#b7809b 100%);box-shadow:none}
+.bubble-pair .speech-bubble.listener:after{left:auto;right:12%;transform:rotate(-8deg)}
+.research-links article.t-line-host,.shipping-entry.t-line-host{position:relative;border-top-color:transparent}
+.t-section-line{position:absolute;left:0;right:0;top:-1px;height:1px;background:var(--line-color,#244d4033);transform:scaleX(0);transform-origin:50% 50%;pointer-events:none}
+.t-section-line.is-inview{transform:scaleX(1);transition:transform .6s cubic-bezier(.645,0,0,1)}
+.contact-body .passport-book{animation:profile-reference-pulse 1.2s ease-in-out infinite alternate}
+@keyframes profile-reference-pulse{from{scale:1}to{scale:.9}}
+.contact-body .passport-book:is(:hover,:focus-visible){animation-play-state:paused}
+.stamp-shelf-caption .handwriting{position:relative;display:block}
+.stamp-shelf-caption .stamp-guide-arrow{position:absolute;width:90px;height:50px;left:-98px;top:50%;translate:0 -50%;pointer-events:none;overflow:visible;color:inherit}
+.stamp-guide-arrow path{stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none;vector-effect:non-scaling-stroke}
+.music-title-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:20px}
+.music-title-row #favourite-title{margin:0}
+.music-title-row .text-link{white-space:nowrap;font-size:15px;padding:4px 0;gap:7px;align-self:center;margin:0}
+.music-title-row .music-note-symbol{font-size:19px}
+@media(max-width:700px){.music-title-row{gap:8px 18px}.music-title-row .text-link{font-size:13px}.stamp-shelf-caption .handwriting{padding-left:44px}.stamp-shelf-caption .stamp-guide-arrow{left:0;width:36px;height:36px}}
+.intro-reveal .pink-mark{background-size:0% 100%;background-repeat:no-repeat;background-position:center;transition:background-size .6s cubic-bezier(.645,0,0,1) var(--mark-delay,0ms)}
+.intro-reveal[data-revealed=true] .pink-mark{background-size:100% 100%}
+#favourite-content .text-link{position:relative;isolation:isolate;border-bottom:0;text-decoration:none;color:var(--ink)}
+#favourite-content .text-link::before,#favourite-content .text-link::after{content:none}
+.favourite-hover-oval{position:absolute;inset:-5px -18px;z-index:-1;pointer-events:none;border-radius:50%;background:var(--pink);opacity:0;transform:scale(0);transform-origin:50% 100%;filter:blur(10px)}
+@media(prefers-reduced-motion:reduce){.intro-reveal .pink-mark{background-size:100% 100%;transition:none}}
+.static-mode .intro-reveal .pink-mark{background-size:100% 100%;transition:none}
+.favourite-dialog .dialog-close{width:44px;height:44px;padding:0;top:12px;right:12px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;isolation:isolate;line-height:1;font-size:28px;z-index:2}
+.favourite-dialog .dialog-close:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.favourite-dialog .favourite-hover-circle{inset:0;border-radius:50%;transform-origin:50% 100%}
+.favourite-dialog:is([data-reading=camera],[data-reading=editing],[data-reading=nine],[data-reading=groundhog]) .favourite-copy p{margin:0}
+.favourite-dialog:is([data-reading=camera],[data-reading=editing]) .favourite-body p:last-of-type{margin-bottom:0}
+@media(prefers-reduced-motion:reduce){.t-section-line{transform:scaleX(1);transition:none!important}.contact-body .passport-book{animation:none;scale:1}}
+.static-mode .t-section-line{transform:scaleX(1);transition:none!important}.static-mode .passport-book{animation:none;scale:1}

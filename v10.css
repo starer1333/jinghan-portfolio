@@ -1,5 +1,5 @@
 /* V10: scoped to the changes requested in the screenshot review. */
-:root{--journal-face:url('assets/v10/journal-a.png')}
+:root{--journal-face:url('assets/optimized/v10-journal-a-full.webp')}
 .orbit-7 .object-label{border-top:0}
 .obj-cinema,.obj-cinema .orbit-art>img{mix-blend-mode:normal}
 .obj-cinema .orbit-art>img{filter:drop-shadow(2px 8px 7px #244d4018)}

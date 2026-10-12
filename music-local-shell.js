@@ -1,0 +1,21 @@
+(()=>{'use strict';
+const $=s=>document.querySelector(s),query=new URLSearchParams(location.search),frame=$('#browsing-frame'),panel=$('#music-panel'),audio=$('#background-audio'),play=$('#music-play'),progress=$('#music-progress'),root=new URL('.',location.href);let first=true,current='index.html',seeking=false;
+function safeView(value){try{const u=new URL(value,root),name=u.pathname.slice(root.pathname.length);if(u.origin===root.origin&&u.pathname.startsWith(root.pathname)&&/^[a-z0-9-]+\.html$/.test(name)&&name!=='music.html')return name+u.search+u.hash}catch{}return'index.html'}
+function announce(){frame.contentWindow?.postMessage({type:'music-state'},location.origin)}
+function setPanel(open){panel.hidden=!open;announce();if(open)play.focus();else{try{const doc=frame.contentDocument;(doc.querySelector('.favourite-dialog[open] .site-music-entry')||doc.querySelector('.site-music-entry'))?.focus()}catch{}}}
+window.HowISeeMusic={toggle:()=>setPanel(panel.hidden),state:()=>({open:!panel.hidden,playing:!audio.paused&&!audio.ended})};
+const time=n=>{n=Math.floor(Number.isFinite(n)?n:0);return Math.floor(n/60)+':'+String(n%60).padStart(2,'0')};
+function update(){const duration=Number.isFinite(audio.duration)?audio.duration:0;progress.disabled=!duration;progress.max=duration||100;if(!seeking)progress.value=audio.currentTime;progress.style.setProperty('--progress',duration?`${audio.currentTime/duration*100}%`:'0%');$('#music-time').textContent=time(audio.currentTime)+(duration?' / '+time(duration):'')}
+audio.volume=.65;
+play.addEventListener('click',async()=>{if(!audio.paused){audio.pause();return}try{$('#music-status').textContent='正在载入 / Loading…';await audio.play()}catch{$('#music-status').textContent='暂时无法播放，请再点一次。 / Unable to play. Please try again.'}});
+function playbackState(){const playing=!audio.paused;play.classList.toggle('is-playing',playing);play.setAttribute('aria-label',playing?'暂停 / Pause':'播放 / Play');$('#music-status').textContent=playing?'正在播放 · 收起后继续听 / Playing · Listen while browsing':'已暂停 / Paused';announce()}
+audio.addEventListener('play',playbackState);audio.addEventListener('pause',playbackState);audio.addEventListener('ended',playbackState);audio.addEventListener('error',()=>{$('#music-status').textContent='音频载入失败，请刷新后重试。 / Audio could not load.'});
+['timeupdate','loadedmetadata','durationchange'].forEach(event=>audio.addEventListener(event,update));
+progress.addEventListener('input',()=>{seeking=true;$('#music-time').textContent=time(Number(progress.value))+' / '+time(audio.duration)});progress.addEventListener('change',()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number(progress.value);seeking=false;update()});
+$('#music-back').addEventListener('click',()=>{audio.currentTime=Math.max(0,audio.currentTime-10)});$('#music-forward').addEventListener('click',()=>{if(Number.isFinite(audio.duration))audio.currentTime=Math.min(audio.duration,audio.currentTime+10)});
+$('#music-repeat').addEventListener('click',e=>{audio.loop=!audio.loop;e.currentTarget.setAttribute('aria-pressed',String(audio.loop))});
+$('#music-volume').addEventListener('input',e=>{audio.volume=Number(e.target.value);audio.muted=audio.volume===0;$('#music-mute').setAttribute('aria-pressed',String(audio.muted))});
+$('#music-mute').addEventListener('click',e=>{audio.muted=!audio.muted;e.currentTarget.setAttribute('aria-pressed',String(audio.muted))});
+$('#minimize-music').addEventListener('click',()=>setPanel(false));document.addEventListener('keydown',e=>{if(e.key==='Escape')setPanel(false)});
+current=safeView(query.get('view')||'index.html');frame.addEventListener('load',()=>{try{current=safeView(frame.contentWindow.location.href);document.title=frame.contentDocument.title+' · Glass';if(first){first=false;const y=Math.max(0,Math.min(1e7,Number(query.get('scroll'))||0));if(y)frame.contentWindow.scrollTo(0,y);const key=query.get('favourite');if(key&&/^[a-z]+$/.test(key))frame.contentDocument.querySelector('[data-favourite="'+key+'"]')?.click()}const url=new URL(location.href);url.searchParams.set('view',current);url.searchParams.delete('scroll');url.searchParams.delete('favourite');history.replaceState(null,'',url);announce()}catch{}});frame.src=new URL(current,root).href;
+})();

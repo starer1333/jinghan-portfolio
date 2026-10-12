@@ -1,5 +1,5 @@
 /* Art-only overrides: existing opening motion and hit areas remain intact. */
-:root{--journal-face:url('assets/v9/journal-a.png')}html[data-journal=b]{--journal-face:url('assets/v9/journal-b.png')}
+:root{--journal-face:url('assets/optimized/v9-journal-a-full.webp')}html[data-journal=b]{--journal-face:url('assets/optimized/v9-journal-b-full.webp')}
 .obj-cinema{mix-blend-mode:multiply}.obj-cinema .orbit-art{filter:none}.obj-cinema .orbit-art>img{width:118px;height:145px;mix-blend-mode:multiply}
 .journal-skin{padding:0!important;background-image:none!important;background-color:#eee8d9!important}
 .journal-cover-image{position:absolute;inset:0;background-image:var(--journal-face);background-position:center;background-size:100% 100%;border-radius:inherit}

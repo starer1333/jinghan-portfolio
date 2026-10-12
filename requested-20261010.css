@@ -1,0 +1,32 @@
+/* Only the objects requested on 2026-10-10. T reference timings in work/REFERENCES.md. */
+.t-idle-art{animation:t-reference-float 6.283185s linear infinite;animation-delay:var(--idle-phase,0s);will-change:translate}
+@keyframes t-reference-float{0%,100%{translate:0 0}25%{translate:0 -7px}50%{translate:0 0}75%{translate:0 7px}}
+/* An exact sine is provided by linear() where supported. */
+@supports(animation-timing-function:linear(0,.5,1)){
+ .t-idle-art{animation-name:t-reference-sine;animation-timing-function:linear(0,.049,.191,.412,.691,1,1.309,1.588,1.809,1.951,2,1.951,1.809,1.588,1.309,1,.691,.412,.191,.049,0)}
+ @keyframes t-reference-sine{from{translate:0 -6px}to{translate:0 0}}
+}
+.research-art-target>.v4-film-wrap,.research-art-target>.v4-ship-wrap{vertical-align:middle}
+.research-art-target .v4-motion-art{animation:none}
+.hello-line .study-postcard.t-idle-art{will-change:translate}
+.stamp-options .topic-stamp.t-idle-art{will-change:translate}
+.stamp-options .topic-stamp:is(:active,:focus-visible){animation-play-state:paused}
+.stamp-options:has(.being-dragged) .topic-stamp{animation-play-state:paused}
+.stamp-ghost.t-idle-art,.stamp-drop .t-idle-art{animation:none!important;translate:0 0!important}
+.t-pop-object{transform-origin:50% 60%;will-change:translate,scale,rotate}
+.t-pop-waiting{visibility:hidden;pointer-events:none}
+.bubble-pair{perspective:1000px;isolation:isolate}
+.bubble-pair .speech-bubble{position:relative;isolation:isolate;overflow:visible;border:1px solid #ffffffbd;border-bottom-color:#bcc5be;background:radial-gradient(ellipse at 30% 17%,#ffffff 0%,#fafcf7 27%,#eef2eb 57%,#d4ded1 87%,#aabbaa 100%);box-shadow:inset 2px 5px 5px #ffffffdc,inset -7px -12px 16px #657c6430,0 5px 0 #b9c7b8,0 8px 0 #aabbac,0 13px 0 -3px #9cae9f,7px 22px 23px -11px #2c584452;transition:transform .55s,background .55s,box-shadow .55s}
+.bubble-pair .speech-bubble[aria-pressed=true]{background:radial-gradient(ellipse at 29% 15%,#fff2f5 0%,#efc8d6 26%,#e4b4c7 56%,#cc96ad 83%,#b77f99 100%);border-bottom-color:#b27a94;box-shadow:inset 2px 5px 5px #fff6fae0,inset -7px -12px 16px #97577333,0 5px 0 #ca96ac,0 8px 0 #b77d98,0 13px 0 -3px #a66e88,7px 22px 23px -11px #4a30464a}
+.speech-bubble:after{content:'';position:absolute;z-index:-1;width:30px;height:24px;bottom:-7px;left:22%;border-radius:0 0 5px 3px;transform:skewY(-24deg) rotate(18deg);background:linear-gradient(145deg,#eef2eb,#b5c5b5);box-shadow:3px 5px 0 #aabbac}
+.speech-bubble[aria-pressed=true]:after{background:linear-gradient(145deg,#e4b4c7,#c08ba3);box-shadow:3px 5px 0 #b77d98}
+.speech-bubble.listener:after{left:auto;right:22%;transform:skewY(24deg) rotate(-18deg)}
+.speech-bubble small,.speech-bubble strong{position:relative;z-index:1}
+.music-quote{position:relative;margin:22px 0 24px;padding:7px 36px;color:var(--ink);font:500 clamp(23px,2.8vw,36px)/1.7 var(--serif);text-align:center}
+.music-quote .folded-quote{position:absolute;width:39px;height:39px;left:-3px;top:-18px;filter:drop-shadow(1px 3px 2px #78536522)}
+.music-quote .folded-quote.closing{left:auto;right:-3px;top:auto;bottom:-13px;transform:rotate(180deg)}
+.favourite-dialog[data-reading=music]{width:min(800px,92vw)}
+@media(max-width:700px){.music-quote{font-size:23px;padding:10px 18px}.music-quote .folded-quote{width:29px;height:29px}}
+@media(prefers-reduced-motion:reduce){.t-idle-art{animation:none!important;translate:0 0!important}.t-pop-object{visibility:visible!important;translate:0 0!important;rotate:0deg!important;scale:1!important;pointer-events:auto!important}}
+.static-mode .t-idle-art{animation:none!important;translate:0 0!important}
+.static-mode .t-pop-object{visibility:visible!important;translate:0 0!important;rotate:0deg!important;scale:1!important;pointer-events:auto!important}

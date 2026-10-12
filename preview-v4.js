@@ -25,7 +25,7 @@ $$('.paper-transition').forEach((section,index)=>{
  node('feComposite',{in:'soft',in2:'SourceGraphic',operator:'in',result:'grain'},texture);
  node('feBlend',{in:'SourceGraphic',in2:'grain',mode:'multiply'},texture);
  const grad=node('linearGradient',{id:id+'-fold',x1:'0%',y1:'20%',x2:'100%',y2:'65%'},defs);
- [['0%','#80958a'],['12%','#d4d8c9'],['34%','#fffdf3'],['65%','#eeefe5'],['100%','#bfc8ba']].forEach(([offset,color])=>node('stop',{offset,'stop-color':color},grad));
+ [['0%','#cbd0c7'],['16%','#eeeFE8'],['46%','#fffef8'],['78%','#f5f5ef'],['100%','#c9cfc4']].forEach(([offset,color])=>node('stop',{offset,'stop-color':color},grad));
  const recover=section.classList.contains('recover'),front=recover?'var(--mint)':'#ffffff';
  const base=node('rect',{fill:recover?'#ffffff':'var(--mint)',x:'0',y:'0'},s);
  const shadow=node('path',{fill:'#29473a',class:'v4-paper-shadow'},s);
@@ -56,9 +56,15 @@ $$('.paper-transition').forEach((section,index)=>{
   fiber.setAttribute('d',tip>=w?d:`M-6,-6H${w+6} L${fiberLine}${tail}Z`);shadow.setAttribute('d',fiber.getAttribute('d'));shadow.setAttribute('transform',`translate(2 ${5+Math.abs(spring)*.1})`);
   let fibers='';for(const[x,y]of wave){if(Math.floor(x)%6<2)fibers+=`M${x},${y+3}l${Math.sin(x)*1.5},${2+Math.abs(Math.sin(x*.6))*5}`;}fringe.setAttribute('d',fibers);
   if(hasFold){
-   const fw=Math.min(145,w*.16)*(Math.sin(progress*Math.PI)*.7+.3),bottom=canvas+16;
-   const fd=`M${tip},${ty} C${tip+depth*.11},${ty+depth*.35} ${tip-depth*.24},${ty+depth*.88} ${curlLeft},${bottom} C${curlLeft+fw*.4},${bottom+2} ${curlLeft+fw*1.15},${bottom+5} ${curlLeft+fw*1.6},${bottom+12} C${tip+fw*.75},${ty+depth*.95} ${tip+fw*.47},${ty+depth*.2} ${tip},${ty}Z`;
-   fold.setAttribute('d',fd);foldShadow.setAttribute('d',fd);foldShadow.setAttribute('transform','translate(8 8)');crease.setAttribute('d',`M${tip},${ty} C${tip+depth*.11},${ty+depth*.35} ${tip-depth*.24},${ty+depth*.88} ${curlLeft},${bottom}`);
+   const bottom=canvas+16,drop=bottom-ty,fw=Math.min(w*.36,drop*1.18);
+   const jag=t=>Math.sin(t*91)*2.3+Math.sin(t*231)*1.1+Math.sin(t*477)*.5;
+   const rough=[];
+   for(let k=0;k<=70;k++){const q=k/70;rough.push([tip+drop*(.15*q-.10*q*q)+jag(q)*Math.min(1,q*12),ty+drop*q]);}
+   const roughLine=rough.map(([x,y])=>`${x.toFixed(2)},${y.toFixed(2)}`).join(' L');
+   const fd=`M${roughLine} L${tip+fw},${bottom+4} C${tip+fw*.94},${ty+drop*.75} ${tip+fw*.3},${ty+drop*.27} ${tip},${ty}Z`;
+   fold.setAttribute('d',fd);foldShadow.setAttribute('d',fd);foldShadow.setAttribute('transform','translate(-14 9)');
+   crease.setAttribute('d',`M${tip},${ty} C${tip+fw*.3},${ty+drop*.27} ${tip+fw*.94},${ty+drop*.75} ${tip+fw},${bottom+4}`);
+
   }else{fold.setAttribute('d','');foldShadow.setAttribute('d','');crease.setAttribute('d','');}
   hit.setAttribute('d',wave.length?`M${line}`:'');
  }

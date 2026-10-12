@@ -1,6 +1,6 @@
 /* V11: requested object, correspondence, and Notes refinements only. */
-:root{--mail-art:url('assets/v11/card-blue.png');--mail-accent:#357b89}
-html[data-mail-art=sun]{--mail-art:url('assets/v11/card-sun.png');--mail-accent:#b54e2d}
+:root{--mail-art:url('assets/optimized/v11-card-blue-full.webp');--mail-accent:#357b89}
+html[data-mail-art=sun]{--mail-art:url('assets/optimized/v11-card-sun-full.webp');--mail-accent:#b54e2d}
 /* The expanded envelope stays anchored to its original navigation position. */
 .header-hello{transform-origin:top right;transition:transform .45s cubic-bezier(.22,.7,.2,1)}
 .hello-envelope{width:66px;height:51px;filter:drop-shadow(1px 3px 2px #244d401c)}
